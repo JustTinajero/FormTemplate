@@ -6,12 +6,11 @@ namespace Tinajero\Ember\Forms;
 
 use form\SimpleForm;
 use pocketmine\player\Player;
-use Tinajero\Ember\SQL;
 
 class Modes extends SimpleForm{
     
     protected function title():string{
-        return 'Ember';
+        return 'FFA';
     }
 
     protected function content():string{
@@ -25,18 +24,14 @@ class Modes extends SimpleForm{
     protected function onClickButton(Player $player, int $button):void{
         switch ($button) {
             case 0:
-                $prefix = SQL::getPrefix();
-                $player->sendMessage($prefix . "Mode 1");
+                $player->sendMessage("Mode 1");
                 break;
             case 1:
-                $prefix = SQL::getPrefix();
-                $player->sendMessage($prefix . "Mode 2");
+                $player->sendMessage("Mode 2");
                 break;
         }
     }
 
-    /* When player closes the form, this function will be executed */
     protected function onClose(Player $player):void{
-        // Your code goes here...
     }
 }
